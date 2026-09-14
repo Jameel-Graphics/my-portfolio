@@ -12,4 +12,4 @@ https://jameel-graphics.github.io/my-portfolio
 
 ### 📞 Contact
 - Email: jameelhussain5577@gmail.com 
-- LinkedIn:(https://www.linkedin.com/in/jameel-hussain-a39ab3434/)
+- LinkedIn: [Jameel Hussain](https://www.linkedin.com/in/jameel-hussain-a39ab3434/)
