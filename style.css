@@ -10,11 +10,12 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif; /* font thora modern kiya */
+    font-family: 'Segoe UI', Arial, sans-serif;
     background: #0b1120;
     color: #ffffff;
-    overflow-x: hidden; /* side scroll fix */
+    overflow-x: hidden;
 }
+
 
 /* ================= NAVBAR ================= */
 nav {
@@ -27,14 +28,14 @@ nav {
     top: 0;
     z-index: 100;
     background: rgba(11, 17, 32, 0.95);
-    backdrop-filter: blur(10px); /* glass effect add */
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid #1e3a5f;
 }
 
 nav h2 {
     font-size: 28px;
     letter-spacing: 1px;
-    color: #38bdf8; /* dot wala color add */
+    color: #38bdf8;
 }
 
 .nav-links {
@@ -54,10 +55,11 @@ nav h2 {
     color: #38bdf8;
 }
 
+
 /* ================= HERO ================= */
 .hero {
     min-height: 90vh;
-    padding: 120px 8% 80px; /* top padding navbar ke liye barhai */
+    padding: 120px 8% 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,12 +101,13 @@ nav h2 {
     max-width: 580px;
 }
 
+
 /* ================= BUTTONS ================= */
 .hero-buttons {
     display: flex;
     gap: 15px;
     margin-top: 35px;
-    flex-wrap: wrap; /* mobile fix */
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -123,7 +126,7 @@ nav h2 {
 
 .primary-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); /* glow add */
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
 }
 
 .secondary-btn {
@@ -136,6 +139,7 @@ nav h2 {
     color: #0b1120;
     transform: translateY(-3px);
 }
+
 
 /* ================= PROFILE CARD ================= */
 .hero-card {
@@ -150,8 +154,9 @@ nav h2 {
     background: #111c32;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     padding: 25px;
-    flex-shrink: 0; /* image choti na ho */
+    flex-shrink: 0;
 }
+
 
 /* ================= PROFILE IMAGE ================= */
 .profile-pic {
@@ -175,6 +180,7 @@ nav h2 {
     text-align: center;
 }
 
+
 /* ================= SECTIONS ================= */
 section:not(.hero) {
     padding: 100px 8%;
@@ -191,6 +197,7 @@ section p {
     font-size: 18px;
     line-height: 1.7;
 }
+
 
 /* ================= ABOUT ================= */
 #about {
@@ -213,6 +220,7 @@ section p {
     margin-bottom: 20px;
     max-width: 600px;
 }
+
 
 /* ================= SKILLS ================= */
 .skills-card {
@@ -241,6 +249,7 @@ section p {
     color: #38bdf8;
 }
 
+
 /* ================= PROJECTS ================= */
 #projects {
     background: #0b1120;
@@ -248,7 +257,7 @@ section p {
 
 .project-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* responsive fix */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
     margin-top: 40px;
 }
@@ -259,6 +268,7 @@ section p {
     border-radius: 18px;
     padding: 20px;
     overflow: hidden;
+    min-height: 650px; /* Card ki height barhai */
     transition: 0.3s ease;
 }
 
@@ -268,11 +278,12 @@ section p {
     box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
 }
 
+
 /* ================= PROJECT IMAGE ================= */
 .project-card img {
     width: 100%;
-    height: 280px;
-    object-fit: cover; /* contain se cover kiya taake acha lage */
+    height: 380px; /* Poster ke liye perfect height */
+    object-fit: contain; /* PURA poster dikhega, cut nahi hoga */
     display: block;
     background: #0b1120;
     border-radius: 12px;
@@ -284,6 +295,7 @@ section p {
     transform: scale(1.03);
 }
 
+
 /* ================= PROJECT TEXT ================= */
 .project-card h3 {
     font-size: 23px;
@@ -294,6 +306,7 @@ section p {
     font-size: 15px;
     margin-bottom: 20px;
 }
+
 
 /* ================= PROJECT BUTTON ================= */
 .project-btn {
@@ -308,6 +321,7 @@ section p {
     color: white;
     letter-spacing: 1px;
 }
+
 
 /* ================= CONTACT ================= */
 #contact {
@@ -325,12 +339,13 @@ section p {
     margin: 0 auto 45px;
 }
 
+
 /* ================= CONTACT CARDS ================= */
 .contact-container {
     max-width: 1100px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* responsive fix */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
@@ -352,6 +367,7 @@ section p {
     border-color: #38bdf8;
     box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
 }
+
 
 /* ================= CONTACT ICON ================= */
 .contact-icon {
@@ -381,6 +397,7 @@ section p {
     word-break: break-word;
 }
 
+
 /* ================= FOOTER ================= */
 footer {
     background: #080d19;
@@ -395,8 +412,9 @@ footer p {
     margin: 5px;
 }
 
+
 /* ================= MOBILE ================= */
-@media (max-width: 900px) { /* 800 se 900 kiya taake tablet me bhi theek rahe */
+@media (max-width: 900px) {
 
     nav {
         padding: 20px 5%;
@@ -410,7 +428,6 @@ footer p {
         font-size: 14px;
     }
 
-    /* HERO */
     .hero {
         flex-direction: column;
         text-align: center;
@@ -433,7 +450,6 @@ footer p {
         justify-content: center;
     }
 
-    /* PROFILE */
     .hero-card {
         width: 100%;
         max-width: 320px;
@@ -445,7 +461,6 @@ footer p {
         height: 150px;
     }
 
-    /* ABOUT */
     .about-container {
         grid-template-columns: 1fr;
     }
@@ -454,12 +469,14 @@ footer p {
         text-align: center;
     }
 
-    /* PROJECTS */
-    .project-card img {
-        height: 250px;
+    .project-card {
+        min-height: auto;
     }
 
-    /* CONTACT */
+    .project-card img {
+        height: 350px;
+    }
+
     #contact h2 {
         font-size: 35px;
     }
