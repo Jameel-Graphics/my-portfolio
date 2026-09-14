@@ -11,5 +11,5 @@ This is my personal portfolio website.
 https://jameel-graphics.github.io/my-portfolio
 
 ### 📞 Contact
-- Email: your-email@gmail.com
-- LinkedIn: your-linkedin
+- Email: jameelhussain5577@gmail.com 
+- LinkedIn: [your-linkedin](https://www.linkedin.com/in/jameel-hussain-a39ab3434/)
