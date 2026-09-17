@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "title": "Jameel Hussain - Logo Design",
+    "desc": "Personal branding logo design by Jameel Graphics",
+    "image": "jameel hussain.png",
+    "date": "September 2026",
+    "linkedin": ""
+  },
+  {
+    "title": "Social Media Design 1",
+    "desc": "Creative poster design",
+    "image": "design 1.png",
+    "date": "September 2026",
+    "linkedin": ""
+  },
+  {
+    "title": "Social Media Design 4",
+    "desc": "Branding and marketing post",
+    "image": "design 4.png",
+    "date": "September 2026",
+    "linkedin": ""
+  },
+  {
+    "title": "Social Media Design 5",
+    "desc": "Modern visual identity",
+    "image": "design 5.png",
+    "date": "September 2026",
+    "linkedin": ""
+  }
+]
