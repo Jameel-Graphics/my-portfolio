@@ -1,133 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Pro - Jameel</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<title>Jameel Hussain | PRO Graphics Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#0a0a0a;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-.card{width:100%;max-width:500px;background:#151515;border-radius:24px;padding:35px;border:1px solid #222}
-h2{font-size:26px}
-h2 span{color:#ff4d00}
-p{color:#888;font-size:13px;margin:8px 0 20px}
-label{font-size:12px;color:#aaa;margin-top:15px;display:block}
-input,select,textarea{width:100%;padding:14px;margin-top:6px;background:#1f1f1f;border:1px solid #2a2a2a;border-radius:12px;color:#fff;outline:none}
-input:focus,select:focus,textarea:focus{border-color:#ff4d00}
-textarea{height:90px;resize:none}
-.btn{width:100%;padding:15px;background:#ff4d00;border:none;border-radius:12px;color:#fff;font-weight:600;font-size:16px;margin-top:20px;cursor:pointer;transition:0.2s}
-.btn:hover{background:#ff6a2a}
-.preview{width:100%;height:200px;background:#1f1f1f;border-radius:12px;margin-top:15px;overflow:hidden;display:none}
-.preview img{width:100%;height:100%;object-fit:cover}
-.success{background:#00c85320;border:1px solid #00c853;color:#00e676;padding:15px;border-radius:12px;margin-top:20px;display:none;text-align:center}
-.login-box{text-align:center}
-.login-box input{margin-top:20px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050505;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+h1,h2{font-family:'Syne',sans-serif}
+nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6%;border-bottom:1px solid #1a1a1a;position:sticky;top:0;background:#050505cc;backdrop-filter:blur(20px);z-index:100}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:44px;height:44px;background:#ff4d00;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:20px;font-family:'Syne'}
+.logo-text{letter-spacing:6px;font-size:11px;color:#ff4d00;opacity:0.8}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{color:#999;text-decoration:none;font-size:13px;letter-spacing:1px;transition:0.3s}
+.nav-links a.active,.nav-links a:hover{color:#fff}
+.btn-orange{background:#ff4d00;color:#000;padding:12px 28px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:1px}
+.hero{display:grid;grid-template-columns:1.2fr 0.8fr;padding:70px 6% 50px;gap:40px;align-items:center}
+.hero h1{font-size:clamp(48px,8vw,92px);line-height:0.9;letter-spacing:-3px;text-transform:uppercase}
+.badge{display:inline-block;background:#ff4d00;color:#000;padding:6px 16px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:2px;margin:16px 0}
+.hero p{color:#888;max-width:420px;line-height:1.6;margin:20px 0 32px;font-size:15px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-outline{border:1px solid #333;color:#fff;padding:14px 28px;border-radius:100px;text-decoration:none;font-size:13px;letter-spacing:1px}
+.stats{display:flex;gap:40px;margin-top:40px;border-top:1px solid #1a1a1a;padding-top:24px}
+.stat b{font-size:28px;display:block;font-family:'Syne'} 
+.stat span{font-size:11px;color:#666;letter-spacing:1px}
+.hero-card{background:#111;border-radius:24px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:420px;border:1px solid #1a1a1a;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,#ff4d0015,transparent 60%)}
+.avatar{width:160px;height:160px;border-radius:50%;background:#222;border:2px solid #ff4d00;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.works{padding:40px 6% 80px;border-top:1px solid #111}
+.works-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;flex-wrap:wrap;gap:10px}
+.works-head h2{font-size:24px;display:flex;align-items:center;gap:16px}
+.works-head h2::before{content:'';width:30px;height:2px;background:#ff4d00;display:inline-block}
+.works-head small{color:#666;letter-spacing:2px;font-size:11px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.project{background:#111;border-radius:20px;padding:24px;border:1px solid #1a1a1a;transition:0.4s}
+.project:hover{border-color:#ff4d00;transform:translateY(-6px)}
+.project img{width:100%;height:280px;object-fit:cover;border-radius:14px;background:#1a1a1a}
+.project h3{margin:18px 0 6px;font-size:16px;letter-spacing:1px}
+.project p{color:#ff4d00;font-size:11px;letter-spacing:1px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.nav-links{display:none}}
 </style>
 </head>
 <body>
-
-<div class="card" id="loginCard">
-<div class="login-box">
-<h2>Admin <span>Login</span> 🔒</h2>
-<p>Sirf Jameel Hussain ke liye</p>
-<input type="password" id="pass" placeholder="Password likho jani">
-<button class="btn" onclick="login()">Login Karo</button>
-<p id="loginError" style="color:#ff4444;display:none;margin-top:10px">Password galat hai jani!</p>
+<nav>
+<div class="logo"><div class="logo-mark">JH</div><div class="logo-text">JAMEEL HUSSAIN</div></div>
+<div class="nav-links">
+<a class="active" href="#">WORK</a><a href="#">ABOUT</a><a href="#">SERVICES</a><a href="#">CONTACT</a>
+<a class="btn-orange" href="admin.html">LET'S TALK</a>
+</div>
+</nav>
+<div class="hero">
+<div>
+<h1>JAMEEL<br>HUSSAIN</h1>
+<div class="badge">GRAPHICS DESIGNER</div>
+<p>Crafting bold visual identities & food branding that drives appetite, attention, and impact. Based in Gilgit, serving worldwide.</p>
+<div class="hero-actions">
+<a class="btn-orange" href="#works">VIEW WORK →</a>
+<a class="btn-outline" href="#">CONTACT ↗</a>
+</div>
+<div class="stats">
+<div class="stat"><b>5+</b><span>YEARS EXPERIENCE</span></div>
+<div class="stat"><b>40+</b><span>PROJECTS DELIVERED</span></div>
+<div class="stat"><b>20+</b><span>BRANDS PARTNERED</span></div>
 </div>
 </div>
-
-<div class="card" id="adminCard" style="display:none">
-<h2>Add <span>Project</span> 🚀</h2>
-<p>Naya design yahan se add karo - seedha website par ayega</p>
-
-<label>Project Title *</label>
-<input id="title" placeholder="Ex: Foodpanda Menu Design">
-
-<label>Category</label>
-<select id="category">
-<option>Pizza Poster</option>
-<option>Food Menu</option>
-<option>Logo Design</option>
-<option>Social Media Post</option>
-<option>Restaurant Branding</option>
-<option>Other</option>
-</select>
-
-<label>Image URL * (Ya design 1.png jaise naam)</label>
-<input id="image_url" placeholder="design 1.png ya https://..." oninput="showPreview(this.value)">
-
-<div class="preview" id="previewBox"><img id="previewImg"></div>
-
-<label>Project Link (Optional)</label>
-<input id="project_link" placeholder="https://behance.net/...">
-
-<label>Description (Optional)</label>
-<textarea id="desc" placeholder="Is design ke baare me kuch likho..."></textarea>
-
-<button class="btn" id="publishBtn" onclick="publish()">🚀 Publish to Website</button>
-
-<div class="success" id="successBox">
-<b>✅ MashaAllah! Ho gaya!</b><br>
-Project live ho gaya hai!<br><br>
-<a href="index.html" target="_blank" style="color:#00e676;text-decoration:underline">Portfolio Dekho →</a>
+<div class="hero-card">
+<div class="avatar"><img src="jameel hussain.png" onerror="this.style.display='none'" alt="Jameel"><span style="font-size:60px">👨‍🎨</span></div>
+<p style="margin-top:16px;color:#666;font-size:11px;letter-spacing:2px;position:relative;z-index:1">PROFILE PHOTO</p>
 </div>
-
 </div>
-
+<div class="works" id="works">
+<div class="works-head"><h2>SELECTED WORKS</h2><small>FOOD POSTERS — BRANDING & PRINT DESIGN</small></div>
+<div class="grid" id="list"><p style="color:#444">Loading pro projects from Supabase...</p></div>
+</div>
 <script>
-const supabaseUrl = 'https://bfkpuxsppgdsvbuwknog.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJma3B1eHNwcGdkc3ZidXdrbm9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1NTk4NDEsImV4cCI6MjA3MDEzNTg0MX0.TI6RTlh56UHW-j5WGMuALvJe7P86SqW3VXMFkhBc4Uc'
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey)
-
-function login(){
- let p = document.getElementById('pass').value
- if(p==='jameel123'){
-   document.getElementById('loginCard').style.display='none'
-   document.getElementById('adminCard').style.display='block'
- } else {
-   document.getElementById('loginError').style.display='block'
- }
+const supabaseUrl='https://bfkpuxsppgdsvbuwknog.supabase.co'
+const supabaseKey='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJma3B1eHNwcGdkc3ZidXdrbm9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4MTQ0MzUsImV4cCI6MjA3NjM5MDQzNX0.TI6RTlh56UHW-j5WGMuALvJe7P86SqW3VXMFkhBc4Uc'
+const client=supabase.createClient(supabaseUrl,supabaseKey)
+async function load(){
+ let {data}=await client.from('portfolio_projects').select('*').order('created_at',{ascending:false})
+ let el=document.getElementById('list')
+ if(!data||data.length==0){el.innerHTML='<p style="color:#666;padding:40px;text-align:center;grid-column:1/-1">No projects yet.<br>Add from <a href=admin.html style=color:#ff4d00>admin.html</a></p>';return}
+ el.innerHTML=data.map(p=>`<div class="project"><img src="${p.image_url}" loading="lazy"><h3>${p.title.toUpperCase()}</h3><p>#${(p.category||'DESIGN').toUpperCase()} ${p.project_link?`• <a href=${p.project_link} target=_blank style=color:#ff4d00>VIEW</a>`:''}</p></div>`).join('')
 }
-
-function showPreview(url){
- if(!url) return
- document.getElementById('previewBox').style.display='block'
- document.getElementById('previewImg').src=url
-}
-
-async function publish(){
- let btn = document.getElementById('publishBtn')
- let title=document.getElementById('title').value
- let category=document.getElementById('category').value
- let image_url=document.getElementById('image_url').value
- let project_link=document.getElementById('project_link').value
-
- if(!title||!image_url) return alert('Jani Title aur Image zaroori hai! ❤️')
-
- btn.innerText='Publishing... ⏳'
- btn.disabled=true
-
- let { error } = await supabaseClient.from('portfolio_projects').insert([{title, category, image_url, project_link}])
- 
- if(error){
-   alert('Error: '+error.message)
-   btn.innerText='🚀 Publish to Website'
-   btn.disabled=false
-   return
- }
-
- document.getElementById('successBox').style.display='block'
- document.getElementById('title').value=''
- document.getElementById('image_url').value=''
- document.getElementById('project_link').value=''
- document.getElementById('desc').value=''
- document.getElementById('previewBox').style.display='none'
- btn.innerText='🚀 Publish to Website'
- btn.disabled=false
-
- setTimeout(()=>{ document.getElementById('successBox').style.display='none' }, 5000)
-}
+load()
 </script>
 </body>
 </html>
