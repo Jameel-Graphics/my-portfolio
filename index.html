@@ -3,60 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jameel Hussain | Graphics Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Jameel Hussain - Graphics Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#07070a;color:#fff;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2{font-family:'Syne',sans-serif;font-weight:700;letter-spacing:-1.5px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:22px 5%;border-bottom:1px solid #15151a;background:#07070a;position:sticky;top:0;z-index:99}
-.logo{color:#ff4d00;font-size:11px;letter-spacing:4px;font-weight:600;display:flex;align-items:center;gap:10px}
-.logo b{background:#ff4d00;color:#000;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:'Syne';font-size:14px}
-.nav a{color:#888;text-decoration:none;margin-left:28px;font-size:12px;letter-spacing:1px;transition:0.2s}
-.nav a:hover{color:#fff}
-.btn{background:#ff4d00;color:#000;padding:11px 24px;border-radius:100px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:0.5px}
-.hero{display:grid;grid-template-columns:1.15fr 0.85fr;padding:70px 5% 50px;gap:30px;align-items:center}
-.hero h1{font-size:72px;line-height:0.9;text-transform:uppercase;color:#fff}
-.badge{background:#ff4d00;color:#000;padding:7px 16px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1.5px;display:inline-block;margin:18px 0}
-.hero p{color:#8a8a93;max-width:420px;margin:0 0 28px;line-height:1.7;font-size:14px;font-weight:400}
-.hero-btns{display:flex;gap:12px}
-.hero-btns a{padding:13px 26px;border-radius:100px;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.5px}
-.o{background:#ff4d00;color:#000}.b{border:1px solid #2a2a32;color:#fff;background:transparent}
-.stats{display:flex;gap:40px;margin-top:40px;border-top:1px solid #15151a;padding-top:22px}
-.stats b{font-size:22px;display:block;font-family:'Syne';font-weight:700;color:#fff} 
-.stats span{font-size:10px;color:#666;letter-spacing:1px;margin-top:2px;display:block}
-.hero-img{display:flex;align-items:center;justify-content:center;position:relative}
-.hero-img::before{content:'';position:absolute;width:380px;height:380px;background:radial-gradient(circle,#ff4d0022,transparent 70%);border-radius:50%;filter:blur(10px)}
-.circle{width:340px;height:340px;border-radius:50%;overflow:hidden;border:2px solid #ff4d00;box-shadow:0 0 0 10px #ff4d000f,0 0 60px #ff4d0035;position:relative;z-index:1;background:#111}
-.circle img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.works{padding:50px 5%;border-top:1px solid #15151a;margin-top:20px}
-.works h2{font-size:20px;letter-spacing:2px}
-#list{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:left}.hero h1{font-size:48px}.hero-img{order:-1;margin-bottom:20px}.circle{width:280px;height:280px}}
+body{background:#0a0a0f;color:#fff;font-family:'Inter',sans-serif}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;background:#0a0a0f;border-bottom:1px solid #1e1e26;position:sticky;top:0;z-index:100}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-img{width:42px;height:42px;border-radius:10px;background:#ff4d00;object-fit:cover;border:1px solid #ff4d00}
+.logo-text{font-size:12px;letter-spacing:3px;font-weight:700;color:#ff4d00;line-height:1}
+.logo-text small{display:block;font-size:9px;color:#666;letter-spacing:2px;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{color:#777;text-decoration:none;font-size:12px;font-weight:500}
+.nav-links a:hover{color:#fff}
+.btn-talk{background:#ff4d00;color:#000;padding:12px 26px;border-radius:100px;text-decoration:none;font-weight:800;font-size:12px}
+.hero{display:grid;grid-template-columns:1.2fr 0.8fr;padding:80px 5% 60px;gap:40px;align-items:center}
+.hero h1{font-size:72px;line-height:0.9;font-weight:900;letter-spacing:-2px;text-transform:uppercase;color:#f5f5f7}
+.badge{background:#ff4d00;color:#000;padding:8px 16px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:1.5px;display:inline-block;margin:20px 0}
+.hero p{color:#9a9aa3;max-width:440px;line-height:1.7;font-size:14px;margin-bottom:32px}
+.btns{display:flex;gap:12px}
+.btns a{padding:14px 28px;border-radius:100px;text-decoration:none;font-size:12px;font-weight:700}
+.primary{background:#ff4d00;color:#000}.secondary{border:1px solid #2a2a32;color:#fff}
+.stats{display:flex;gap:48px;margin-top:48px;border-top:1px solid #1e1e26;padding-top:24px}
+.stats div b{font-size:24px;display:block;font-weight:900} .stats div span{font-size:10px;color:#666;letter-spacing:1px}
+.hero-right{display:flex;justify-content:center;align-items:center;position:relative}
+.hero-right::before{content:'';position:absolute;width:360px;height:360px;background:radial-gradient(circle,#ff4d0020,transparent 70%);border-radius:50%}
+.circle{width:340px;height:340px;border-radius:50%;overflow:hidden;border:3px solid #ff4d00;box-shadow:0 0 0 12px rgba(255,77,0,0.08),0 0 80px rgba(255,77,0,0.25);position:relative;z-index:1;background:#15151c}
+.circle img{width:100%;height:100%;object-fit:cover;object-position:top}
+.works{padding:60px 5%;border-top:1px solid #1e1e26}
+.works h2{font-size:18px;letter-spacing:3px;font-weight:800}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:48px}.hero-right{order:-1}.circle{width:300px;height:300px}.nav-links{display:none}}
 </style>
 </head>
 <body>
 <nav>
-<div class="logo"><b>JH</b> JAMEEL HUSSAIN</div>
-<div class="nav"><a href="#work">WORK</a><a>ABOUT</a><a>SERVICES</a><a class="btn" href="admin.html">LET'S TALK</a></div>
+<div class="logo-wrap">
+<img class="logo-img" src="logo.png" onerror="this.src='jameel.jpg';this.style.objectFit='cover'" alt="logo">
+<div class="logo-text">JAMEEL HUSSAIN<small>GRAPHICS DESIGNER</small></div>
+</div>
+<div class="nav-links">
+<a href="#work">WORK</a><a>ABOUT</a><a>SERVICES</a>
+<a class="btn-talk" href="admin.html">LET'S TALK</a>
+</div>
 </nav>
 <div class="hero">
 <div>
 <h1>JAMEEL<br>HUSSAIN</h1>
 <div class="badge">GRAPHICS DESIGNER</div>
 <p>Crafting bold visual identities & food branding that drives appetite, attention, and impact. Based in Gilgit, serving worldwide.</p>
-<div class="hero-btns"><a class="o" href="#work">VIEW WORK →</a><a class="b" href="https://wa.me/923000000000" target="_blank">CONTACT ↗</a></div>
-<div class="stats"><div><b>5+</b><span>YEARS EXPERIENCE</span></div><div><b>40+</b><span>PROJECTS DELIVERED</span></div><div><b>20+</b><span>BRANDS PARTNERED</span></div></div>
+<div class="btns"><a class="primary" href="#work">VIEW WORK →</a><a class="secondary" href="https://wa.me/923000000000">CONTACT ↗</a></div>
+<div class="stats"><div><b>5+</b><span>YEARS</span></div><div><b>40+</b><span>PROJECTS</span></div><div><b>20+</b><span>BRANDS</span></div></div>
 </div>
-<div class="hero-img">
-<div class="circle"><img src="jameel.jpg?v=3" onerror="this.src='jameel%20hussain.png?v=3'" alt="Jameel"></div>
+<div class="hero-right">
+<div class="circle"><img src="jameel.jpg?v=4" onerror="this.src='jameel%20hussain.png?v=4'" alt="Jameel Hussain"></div>
 </div>
 </div>
-<div class="works" id="work"><h2>SELECTED WORKS</h2><div id="list"></div></div>
+<div class="works" id="work"><h2>SELECTED WORKS</h2><div id="list" style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px"></div></div>
 <script>
-const c=supabase.createClient('https://bfkpuxsppgdsvbuwknog.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJma3B1eHNwcGdkc3ZidXdrbm9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4MTQ0MzUsImV4cCI6MjA3NjM5MDQzNX0.TI6RTlh56UHW-j5WGMuALvJe7P86SqW3VXMFkhBc4Uc')
-async function load(){let {data}=await c.from('portfolio_projects').select('*').order('created_at',{ascending:false});let el=document.getElementById('list');if(!data||!data.length){el.innerHTML='<p style=color:#555;padding:20px>No projects yet - add from <a href=admin.html style=color:#ff4d00>admin.html</a></p>';return}el.innerHTML=data.map(p=>`<div style=background:#111;border-radius:18px;padding:16px;border:1px solid #1a1a1a><img src=${p.image_url} style=width:100%;height:260px;object-fit:cover;border-radius:12px><h3 style=margin-top:14px;font-size:13px;letter-spacing:1px;font-family:Syne>${p.title.toUpperCase()}</h3></div>`).join('')}load()
+const supa=supabase.createClient('https://bfkpuxsppgdsvbuwknog.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJma3B1eHNwcGdkc3ZidXdrbm9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4MTQ0MzUsImV4cCI6MjA3NjM5MDQzNX0.TI6RTlh56UHW-j5WGMuALvJe7P86SqW3VXMFkhBc4Uc')
+async function load(){let {data}=await supa.from('portfolio_projects').select('*').order('created_at',{ascending:false});let el=document.getElementById('list');if(!data||!data.length){el.innerHTML='<p style=color:#555>No projects yet - add from admin.html</p>';return}el.innerHTML=data.map(p=>`<div style=background:#15151c;border-radius:18px;padding:16px;border:1px solid #1e1e26><img src=${p.image_url} style=width:100%;height:260px;object-fit:cover;border-radius:12px><h3 style=margin-top:14px;font-size:13px;font-weight:700;letter-spacing:1px>${p.title.toUpperCase()}</h3></div>`).join('')}load()
 </script>
 </body>
 </html>
