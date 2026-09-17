@@ -12,7 +12,7 @@ body{background:#050505;color:#fff;font-family:'Inter',sans-serif;overflow-x:hid
 h1,h2{font-family:'Syne',sans-serif}
 nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6%;border-bottom:1px solid #1a1a1a;position:sticky;top:0;background:#050505cc;backdrop-filter:blur(20px);z-index:100}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-mark{width:44px;height:44px;background:#ff4d00;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:20px;font-family:'Syne'}
+.logo-mark{width:44px;height:44px;background:#ff4d00;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:20px;font-family:'Syne';box-shadow:0 0 20px #ff4d0050}
 .logo-text{letter-spacing:6px;font-size:11px;color:#ff4d00;opacity:0.8}
 .nav-links{display:flex;gap:36px;align-items:center}
 .nav-links a{color:#999;text-decoration:none;font-size:13px;letter-spacing:1px;transition:0.3s}
@@ -27,10 +27,9 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6
 .stats{display:flex;gap:40px;margin-top:40px;border-top:1px solid #1a1a1a;padding-top:24px}
 .stat b{font-size:28px;display:block;font-family:'Syne'} 
 .stat span{font-size:11px;color:#666;letter-spacing:1px}
-.hero-card{background:#111;border-radius:24px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:420px;border:1px solid #1a1a1a;position:relative;overflow:hidden}
-.hero-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,#ff4d0015,transparent 60%)}
-.avatar{width:160px;height:160px;border-radius:50%;background:#222;border:2px solid #ff4d00;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;overflow:hidden}
-.avatar img{width:100%;height:100%;object-fit:cover}
+.hero-card{background:#111;border-radius:24px;padding:0;display:flex;align-items:center;justify-content:center;min-height:520px;border:1px solid #1a1a1a;position:relative;overflow:hidden;box-shadow:0 0 40px #ff4d0015}
+.avatar{width:100%;height:100%;border-radius:24px;background:#111;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .works{padding:40px 6% 80px;border-top:1px solid #111}
 .works-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;flex-wrap:wrap;gap:10px}
 .works-head h2{font-size:24px;display:flex;align-items:center;gap:16px}
@@ -42,7 +41,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6
 .project img{width:100%;height:280px;object-fit:cover;border-radius:14px;background:#1a1a1a}
 .project h3{margin:18px 0 6px;font-size:16px;letter-spacing:1px}
 .project p{color:#ff4d00;font-size:11px;letter-spacing:1px}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.nav-links{display:none}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.nav-links{display:none}.hero-card{min-height:400px}}
 </style>
 </head>
 <body>
@@ -69,8 +68,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6
 </div>
 </div>
 <div class="hero-card">
-<div class="avatar"><img src="jameel hussain.png" onerror="this.style.display='none'" alt="Jameel"><span style="font-size:60px">👨‍🎨</span></div>
-<p style="margin-top:16px;color:#666;font-size:11px;letter-spacing:2px;position:relative;z-index:1">PROFILE PHOTO</p>
+<div class="avatar"><img src="jameel hussain.png" onerror="this.src='https://i.ibb.co/3Wq3J6P/profile.jpg'" alt="Jameel"></div>
 </div>
 </div>
 <div class="works" id="works">
