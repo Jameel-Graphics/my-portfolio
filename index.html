@@ -3,83 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jameel Hussain | Visual Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Jameel Hussain | Graphic Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#0A2F2F;color:#fff}
-header{text-align:center;padding:60px 20px 30px;border-bottom:1px solid rgba(255,255,255,.08);position:relative}
-h1{font-size:46px;font-weight:800} h1 span{color:#FF6B1A}
-.tag{margin-top:10px;display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:7px 16px;border-radius:30px;font-size:11px;color:rgba(255,255,255,.7)}
-nav{margin-top:20px;display:flex;gap:18px;justify-content:center}
-nav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:11px;letter-spacing:1px;font-weight:700;text-transform:uppercase}
-nav a:hover{color:#FF6B1A}
-.admin{position:absolute;top:18px;right:18px;background:#FF6B1A;color:#fff;padding:7px 13px;border-radius:6px;font-size:11px;text-decoration:none;font-weight:700}
-.container{max-width:1150px;margin:auto;padding:30px 20px}
-.about{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;background:#0F3A3A;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:30px;margin-top:30px;align-items:center}
-.about h2{font-size:24px;margin-bottom:10px} .about h2 span{color:#FF6B1A}
-.about p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.6)}
-.profile-img{width:100%;height:320px;background:#fff;border-radius:16px;overflow:hidden;padding:8px}
-.profile-img img{width:100%;height:100%;object-fit:cover;border-radius:10px}
-.skills{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
-.skills span{background:rgba(255,107,26,.15);border:1px solid rgba(255,107,26,.25);color:#FFB627;padding:5px 10px;border-radius:20px;font-size:10px;font-weight:700}
-.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
-.contact-box{background:#0F3A3A;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;text-align:center}
-.contact-box b{display:block;color:#FF6B1A;font-size:10px;letter-spacing:1px;margin-bottom:6px}
-.contact-box a{color:#fff;text-decoration:none;font-size:12px;font-weight:600;word-break:break-all}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;margin-top:24px}
-.card{background:#0F3A3A;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;transition:.3s}
-.card:hover{transform:translateY(-6px);border-color:#FF6B1A55}
-.imgbox{width:100%;height:340px;background:#0C3535;display:flex;align-items:center;justify-content:center;padding:10px}
-.imgbox img{width:100%;height:100%;object-fit:contain;background:#fff;border-radius:10px}
-.info{padding:16px}
-.meta{font-size:10px;color:#FF6B1A;font-weight:700;letter-spacing:1px}
-.info h3{font-size:15px;margin:5px 0;color:#fff}
-.info p{font-size:12px;opacity:.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.btns{margin-top:12px;display:flex;gap:8px}
-.btns a{padding:7px 12px;border-radius:6px;font-size:11px;font-weight:700;text-decoration:none}
-.li{background:#FF6B1A;color:#fff}.sh{background:rgba(255,255,255,.1);color:#fff}
-.section-title{font-size:11px;letter-spacing:2px;opacity:.4;margin-top:50px;text-transform:uppercase}
-@media(max-width:900px){.about{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.contact-grid{grid-template-columns:1fr}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif}
+body{background:#061E1E;color:#fff;overflow-x:hidden}
+header{padding:22px 30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99;background:rgba(6,30,30,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+.logo{font-size:20px;font-weight:800} .logo span{color:#FF6B1A}
+.nav{display:flex;gap:26px} .nav a{font-size:12px;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.6);text-decoration:none;text-transform:uppercase}
+.nav a:hover{color:#fff}
+.admin-btn{background:#FF6B1A;color:#fff;padding:9px 18px;border-radius:30px;font-size:12px;font-weight:800;text-decoration:none}
+.hero{max-width:1150px;margin:auto;padding:80px 20px 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:58px;line-height:1.05;font-weight:800} .hero h1 span{background:linear-gradient(90deg,#FF6B1A,#FFB627);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{margin-top:16px;color:rgba(255,255,255,.55);font-size:14px;line-height:1.8;max-width:480px}
+.hero-btns{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:30px;font-size:12px;font-weight:800;text-decoration:none;display:inline-block}
+.btn-primary{background:#FF6B1A;color:#fff} .btn-dark{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff}
+.stats{margin-top:28px;display:flex;gap:26px} .stats b{font-size:22px;display:block} .stats span{font-size:10px;letter-spacing:1px;opacity:.5}
+.hero-card{background:linear-gradient(180deg,#133636,#0F2E2E);border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:14px;position:relative}
+.hero-card img{width:100%;height:420px;object-fit:cover;border-radius:18px;background:#fff}
+.badge{position:absolute;bottom:30px;left:30px;background:#fff;color:#061E1E;padding:10px 14px;border-radius:12px;display:flex;gap:10px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.badge b{font-size:13px} .badge small{font-size:10px;opacity:.6;display:block}
+.container{max-width:1150px;margin:auto;padding:20px}
+.section-label{margin-top:60px;font-size:10px;letter-spacing:3px;opacity:.35;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.section-label:after{content:"";height:1px;background:rgba(255,255,255,.1);flex:1}
+.contact-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.cbox{background:#102F2F;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px;transition:.3s}
+.cbox:hover{border-color:#FF6B1A66;transform:translateY(-3px)}
+.cbox i{width:38px;height:38px;background:rgba(255,107,26,.15);border-radius:10px;display:grid;place-items:center;margin-bottom:12px}
+.cbox b{font-size:10px;color:#FF6B1A;letter-spacing:1px} .cbox a{display:block;margin-top:4px;color:#fff;text-decoration:none;font-size:13px;font-weight:700;word-break:break-all}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:18px}
+.card{background:#102F2F;border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;transition:.35s}
+.card:hover{transform:translateY(-8px);border-color:rgba(255,107,26,.4);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.imgbox{height:360px;background:#0B2828;padding:10px} .imgbox img{width:100%;height:100%;object-fit:contain;background:#fff;border-radius:14px}
+.info{padding:16px} .meta{font-size:9px;color:#FF6B1A;font-weight:800;letter-spacing:1.5px}
+.info h3{margin-top:6px;font-size:15px} .info p{margin-top:4px;font-size:12px;opacity:.5}
+.foot{margin-top:80px;padding:30px;text-align:center;border-top:1px solid rgba(255,255,255,.06);font-size:11px;opacity:.4}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:40px}.hero h1{font-size:40px}.contact-wrap{grid-template-columns:1fr 1fr} header{padding:16px}}
+@media(max-width:500px){.contact-wrap{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
-<a href="admin.html" class="admin">ADMIN LOGIN</a>
-<h1>Jameel <span>Graphics</span></h1>
-<div class="tag">Graphics Designer • Logo & Social Media Expert</div>
-<nav><a href="#about">About</a><a href="#works">Works</a><a href="#contact">Contact</a></nav>
+<div class="logo">JAMEEL <span>GRAPHICS</span></div>
+<div class="nav"><a href="#about">About</a><a href="#contact">Contact</a><a href="#works">Works</a></div>
+<a href="admin.html" class="admin-btn">ADMIN</a>
 </header>
 
-<div class="container">
-<div id="about" class="about">
+<div class="hero" id="about">
 <div>
-<h2>About <span>Me</span></h2>
-<p>I'm <b style="color:#fff">Jameel Hussain</b> - a passionate Graphic Designer from Pakistan specializing in Logo Design, Branding & Social Media Creatives. I help brands to grow with modern, clean and eye-catching visuals.</p>
-<p style="margin-top:10px">With 2+ years of experience in Adobe Photoshop, Illustrator & Canva, I create designs that connect with audience and build trust.</p>
-<div class="skills"><span>LOGO DESIGN</span><span>BRANDING</span><span>SOCIAL POST</span><span>POSTER</span><span>PHOTOSHOP</span><span>ILLUSTRATOR</span></div>
+<h1>Visual Designer <br>That <span>Makes Brands</span><br>Memorable.</h1>
+<p>I'm <b style="color:#fff">Jameel Hussain</b> from Gilgit, Pakistan. I specialize in Logo Design, Branding & Social Media Creatives. I help startups & brands grow with clean, modern & eye-catching visuals.</p>
+<div class="hero-btns">
+<a href="https://wa.me/923161974052" class="btn btn-primary">WhatsApp Me →</a>
+<a href="#works" class="btn btn-dark">View Works</a>
 </div>
-<div class="profile-img"><img src="jameel hussain.png" alt="Jameel Hussain"></div>
+<div class="stats"><div><b>100+</b><span>PROJECTS</span></div><div><b>2+</b><span>YEARS EXP</span></div><div><b>50+</b><span>HAPPY CLIENTS</span></div></div>
 </div>
-
-<div id="contact" class="section-title">Contact Profile 📩</div>
-<div class="contact-grid">
-<div class="contact-box"><b>WHATSAPP</b><a href="https://wa.me/923161974052" target="_blank">03161974052</a></div>
-<div class="contact-box"><b>EMAIL</b><a href="mailto:jameelhussain5577@gmail.com">jameelhussain5577@gmail.com</a></div>
-<div class="contact-box"><b>LINKEDIN</b><a href="https://www.linkedin.com/in/jameel-hussain-a39ab3434/" target="_blank">/jameel-hussain</a></div>
-<div class="contact-box"><b>FIVERR</b><a href="https://www.fiverr.com/jameel4455" target="_blank">fiverr.com/jameel4455</a></div>
+<div class="hero-card">
+<img src="jameel hussain.png" alt="Jameel Hussain">
+<div class="badge"><div style="width:38px;height:38px;background:#FF6B1A;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800">J</div><div><b>Jameel Hussain</b><small>Available for new projects</small></div></div>
+</div>
 </div>
 
-<div id="works" class="section-title">Latest Works ✨</div>
+<div class="container">
+<div id="contact" class="section-label">Contact Profile</div>
+<div class="contact-wrap">
+<div class="cbox"><i>💬</i><b>WHATSAPP</b><a href="https://wa.me/923161974052" target="_blank">03161974052</a></div>
+<div class="cbox"><i>✉️</i><b>EMAIL</b><a href="mailto:jameelhussain5577@gmail.com">jameelhussain5577@gmail.com</a></div>
+<div class="cbox"><i>🔗</i><b>LINKEDIN</b><a href="https://www.linkedin.com/in/jameel-hussain-a39ab3434/" target="_blank">jameel-hussain</a></div>
+<div class="cbox"><i>⭐</i><b>FIVERR</b><a href="https://www.fiverr.com/jameel4455" target="_blank">fiverr.com/jameel4455</a></div>
+</div>
+
+<div id="works" class="section-label">Selected Works — 2026</div>
 <div id="posts" class="grid"></div>
+
+<div class="foot">© 2026 Jameel Graphics — Crafted with ❤️ in Gilgit, Pakistan</div>
 </div>
 
 <script>
 async function load(){
- let res=await fetch('posts.json?v='+Date.now());
- let posts=await res.json();
- document.getElementById('posts').innerHTML=posts.map(p=>`<div class="card"><div class="imgbox"><img src="${p.image}" loading="lazy"></div><div class="info"><div class="meta">${p.date||''}</div><h3>${p.title}</h3><p>${p.desc||''}</p><div class="btns">${p.linkedin?`<a class="li" href="${p.linkedin}" target="_blank">LinkedIn</a>`:''}<a class="sh" href="https://wa.me/923161974052" target="_blank">Order Now</a></div></div></div>`).join('');
+ let r=await fetch('posts.json?v='+Date.now()); let p=await r.json();
+ document.getElementById('posts').innerHTML=p.map(x=>`<div class="card"><div class="imgbox"><img src="${x.image}" loading="lazy"></div><div class="info"><div class="meta">${x.date||'2026'}</div><h3>${x.title}</h3><p>${x.desc||''}</p></div></div>`).join('');
 }
 load();
 </script>
