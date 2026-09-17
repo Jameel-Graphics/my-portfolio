@@ -1,80 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jameel Hussain | Designer</title>
 <style>
-*{margin:0; padding:0; box-sizing:border-box}
-body{font-family:Arial; background:#f8f8f8}
-header{background:#000; color:#fff; padding:40px 20px; text-align:center}
-header h1{font-size:32px}
-.container{max-width:900px; margin:auto; padding:20px}
-.post{background:#fff; border-radius:15px; overflow:hidden; margin:25px 0; box-shadow:0 5px 15px rgba(0,0,0,.08)}
-.post img{width:100%; display:block}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f7f7f7;color:#222}
+header{background:#000;color:#fff;padding:50px 20px;text-align:center}
+header h1{font-size:36px;margin-bottom:5px}
+header p{opacity:.8}
+.container{max-width:850px;margin:auto;padding:20px}
+.post{background:#fff;border-radius:16px;overflow:hidden;margin:25px 0;box-shadow:0 8px 20px rgba(0,0,0,.07)}
+.post img{width:100%;display:block}
 .post-body{padding:18px}
-.post-body h3{margin:5px 0}
-.post-body p{color:#555; margin:8px 0}
-.meta{font-size:12px; color:#888}
-.btn{display:inline-block; margin:5px 5px 0 0; padding:8px 14px; border-radius:20px; text-decoration:none; color:#fff; font-size:14px}
-.btn-li{background:#0A66C2}
-.btn-wa{background:#25D366}
+.meta{font-size:12px;color:#888;margin-bottom:6px}
+.post-body h3{font-size:20px;margin-bottom:6px}
+.post-body p{color:#555;line-height:1.5}
+.btns{margin-top:12px}
+.btn{display:inline-block;padding:9px 16px;border-radius:25px;text-decoration:none;color:#fff;font-size:14px;margin:4px 4px 0 0}
+.btn-li{background:#0A66C2} .btn-wa{background:#25D366} .btn-insta{background:#E1306C}
+.empty{background:#fff;padding:30px;border-radius:16px;text-align:center;color:#777;margin-top:20px}
 </style>
 </head>
 <body>
 <header>
 <h1>Jameel Hussain</h1>
-<p>Graphics Designer</p>
-<a href="admin.html" style="color:#666; font-size:11px; text-decoration:none">Admin</a>
+<p>Graphics Designer | Social Media & Logo Expert</p>
+<p style="margin-top:10px"><a href="admin.html" style="color:#555;font-size:11px;text-decoration:none">Admin Panel</a></p>
 </header>
 
 <div class="container">
-<h2 style="margin-top:20px">My Work</h2>
-<div id="list">Loading posts...</div>
+<h2 style="margin-top:10px">My Daily Work ✨</h2>
+<div id="posts">Loading...</div>
 
-<div style="margin-top:50px; background:#fff; padding:20px; border-radius:15px">
+<div style="margin-top:40px;background:#fff;padding:20px;border-radius:16px">
 <h3>Comments 💬</h3>
-<p style="font-size:13px; color:gray">Log yahan comment karenge to show hoga</p>
-<div id="comments">
 <script src="https://utteranc.es/client.js"
-        repo="Jameel-Graphics/my-portfolio"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-</div>
+repo="Jameel-Graphics/my-portfolio"
+issue-term="pathname"
+theme="github-light"
+crossorigin="anonymous"
+async></script>
 </div>
 </div>
 
 <script>
-async function load(){
- let localPosts = JSON.parse(localStorage.getItem('jameel_posts')||'[]');
- let serverPosts = [];
+async function loadPosts(){
  try{
-   let res = await fetch('posts.json?v='+Date.now());
-   serverPosts = await res.json();
- }catch(e){}
- let all = serverPosts.length>0? serverPosts : localPosts;
-
- let html = '';
- if(all.length==0) html='<p style="margin:20px 0; color:gray">Abhi koi post nahi hai. Admin panel se pehli post dalo jani</p>';
-
- all.forEach(p=>{
+  let res = await fetch('posts.json?v='+Date.now());
+  let posts = await res.json();
+  let box = document.getElementById('posts');
+  if(!posts || posts.length==0){
+   box.innerHTML = '<div class="empty">Abhi koi post nahi hai. <br> Admin panel se pehli post dalo jani ❤️<br><br><a href="admin.html" style="background:#000;color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none">Post Dalo</a></div>';
+   return;
+  }
+  let html='';
+  posts.forEach(p=>{
    html+=`<div class="post">
-     <img src="${p.image}">
-     <div class="post-body">
-       <div class="meta">${p.date||''}</div>
-       <h3>${p.title}</h3>
-       <p>${p.desc||''}</p>
-       ${p.linkedin?`<a class="btn btn-li" href="${p.linkedin}" target="_blank">LinkedIn pe dekho</a>`:''}
-       <a class="btn btn-wa" href="https://wa.me/?text=${encodeURIComponent(p.title+' - '+ (p.linkedin||''))}" target="_blank">Share</a>
+    <img src="${p.image}">
+    <div class="post-body">
+     <div class="meta">${p.date||''}</div>
+     <h3>${p.title}</h3>
+     <p>${p.desc||''}</p>
+     <div class="btns">
+      ${p.linkedin?`<a class="btn btn-li" href="${p.linkedin}" target="_blank">LinkedIn</a>`:''}
+      <a class="btn btn-wa" href="https://wa.me/?text=${encodeURIComponent(p.title+' '+(p.linkedin||''))}" target="_blank">Share WhatsApp</a>
      </div>
+    </div>
    </div>`;
- });
- document.getElementById('list').innerHTML=html;
+  });
+  box.innerHTML=html;
+ }catch(e){
+  document.getElementById('posts').innerHTML='Error loading posts. Check posts.json';
+ }
 }
-load();
+loadPosts();
 </script>
 </body>
 </html>
