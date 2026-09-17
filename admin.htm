@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Jameel</title>
+<style>
+body{font-family:Arial; max-width:500px; margin:30px auto; padding:20px; background:#fff}
+input,textarea{width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:8px; box-sizing:border-box}
+button{background:#000; color:#fff; padding:14px; width:100%; border:none; border-radius:8px; font-size:16px}
+.card{background:#f0f0f0; padding:10px; margin-top:20px; border-radius:8px}
+</style>
+</head>
+<body>
+<h2>Admin Panel ❤️</h2>
+<p>Roz ki post yahan se dalo</p>
+<input id="title" placeholder="Post Title - ex: Logo Design">
+<input id="linkedin" placeholder="LinkedIn Post Link - https://...">
+<textarea id="desc" placeholder="Description likho"></textarea>
+<input type="file" id="image" accept="image/*">
+<button onclick="publish()">Publish Karo</button>
+<div id="out"></div>
 
+<script>
+function publish(){
+ let t=document.getElementById('title').value;
+ let l=document.getElementById('linkedin').value;
+ let d=document.getElementById('desc').value;
+ let f=document.getElementById('image').files[0];
+ if(!t||!f) return alert('Title aur Image lazmi hai jani');
+
+ let r=new FileReader();
+ r.onload=function(e){
+   let post={title:t, linkedin:l, desc:d, image:e.target.result, date:new Date().toLocaleDateString()};
+   let old=JSON.parse(localStorage.getItem('jameel_posts')||'[]');
+   old.unshift(post);
+   localStorage.setItem('jameel_posts', JSON.stringify(old));
+   document.getElementById('out').innerHTML=`<div class="card">
+   <b>Ho gaya! Ab ye step karo:</b><br><br>
+   1. posts.json file open karo<br>
+   2. Neeche wala sara code copy karke wahan paste karo<br>
+   3. Commit kar do<br>
+   <textarea style="height:250px; margin-top:10px">${JSON.stringify(old,null,2)}</textarea>
+   <br><a href="index.html" target="_blank">Portfolio Dekho</a>
+   </div>`;
+ }
+ r.readAsDataURL(f);
+}
+</script>
+</body>
+</html>
