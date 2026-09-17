@@ -1,133 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jameel Hussain | UI/UX & Graphic Designer</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jameel Hussain | Designer</title>
+<style>
+*{margin:0; padding:0; box-sizing:border-box}
+body{font-family:Arial; background:#f8f8f8}
+header{background:#000; color:#fff; padding:40px 20px; text-align:center}
+header h1{font-size:32px}
+.container{max-width:900px; margin:auto; padding:20px}
+.post{background:#fff; border-radius:15px; overflow:hidden; margin:25px 0; box-shadow:0 5px 15px rgba(0,0,0,.08)}
+.post img{width:100%; display:block}
+.post-body{padding:18px}
+.post-body h3{margin:5px 0}
+.post-body p{color:#555; margin:8px 0}
+.meta{font-size:12px; color:#888}
+.btn{display:inline-block; margin:5px 5px 0 0; padding:8px 14px; border-radius:20px; text-decoration:none; color:#fff; font-size:14px}
+.btn-li{background:#0A66C2}
+.btn-wa{background:#25D366}
+</style>
 </head>
 <body>
+<header>
+<h1>Jameel Hussain</h1>
+<p>Graphics Designer</p>
+<a href="admin.html" style="color:#666; font-size:11px; text-decoration:none">Admin</a>
+</header>
 
-    <!-- ================= NAVBAR ================= -->
-    <nav>
-        <h2>Jameel.</h2>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+<div class="container">
+<h2 style="margin-top:20px">My Work</h2>
+<div id="list">Loading posts...</div>
 
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="home">
-        <div class="hero-text">
-            <p class="small-text">HELLO, I'M</p>
-            <h1>Jameel Hussain</h1>
-            <h2>
-                UI/UX Designer &
-                <span>Graphic Designer</span>
-            </h2>
-            <p class="description">
-                I create modern, clean and creative digital experiences
-                through UI/UX design and graphic design.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn primary-btn">View My Work</a>
-                <a href="#contact" class="btn secondary-btn">Contact Me</a>
-            </div>
-        </div>
+<div style="margin-top:50px; background:#fff; padding:20px; border-radius:15px">
+<h3>Comments 💬</h3>
+<p style="font-size:13px; color:gray">Log yahan comment karenge to show hoga</p>
+<div id="comments">
+<script src="https://utteranc.es/client.js"
+        repo="Jameel-Graphics/my-portfolio"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+</div>
+</div>
 
-        <!-- PROFILE CARD -->
-        <div class="hero-card">
-            <img src="jameel%20hussain.png" alt="Jameel Hussain" class="profile-pic">
-            <h3>Jameel Hussain</h3>
-            <p>UI/UX • Graphic Design • Web Design</p>
-        </div>
-    </section>
+<script>
+async function load(){
+ let localPosts = JSON.parse(localStorage.getItem('jameel_posts')||'[]');
+ let serverPosts = [];
+ try{
+   let res = await fetch('posts.json?v='+Date.now());
+   serverPosts = await res.json();
+ }catch(e){}
+ let all = serverPosts.length>0? serverPosts : localPosts;
 
-    <!-- ================= ABOUT ================= -->
-    <section id="about">
-        <div class="about-container">
-            <div class="about-text">
-                <p class="small-text">ABOUT ME</p>
-                <h2>Designing Ideas Into Reality</h2>
-                <p>I am a passionate UI/UX and Graphic Designer who enjoys creating modern and visually attractive designs.</p>
-                <p>My goal is to create designs that are not only beautiful but also simple, useful and easy to understand.</p>
-            </div>
+ let html = '';
+ if(all.length==0) html='<p style="margin:20px 0; color:gray">Abhi koi post nahi hai. Admin panel se pehli post dalo jani</p>';
 
-            <div class="skills-card">
-                <h3>My Skills</h3>
-                <div class="skill"><span>UI/UX Design</span><span>90%</span></div>
-                <div class="skill"><span>Graphic Design</span><span>90%</span></div>
-                <div class="skill"><span>Figma</span><span>85%</span></div>
-                <div class="skill"><span>Photoshop</span><span>85%</span></div>
-                <div class="skill"><span>Web Design</span><span>80%</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-    <section id="projects">
-        <p class="small-text">MY WORK</p>
-        <h2>My Projects</h2>
-        <p>Here are some of my recent Graphic Design and Poster projects.</p>
-        <div class="project-container">
-
-            <div class="project-card">
-                <img src="design%201.png" alt="Social Media Poster Design">
-                <h3>🎨 Social Media Poster</h3>
-                <p>Creative social media poster designed with a modern and attractive visual style.</p>
-                <a href="design%201.png" target="_blank" class="project-btn">View Project →</a>
-            </div>
-
-            <div class="project-card">
-                <img src="design%204.png" alt="Promotional Poster Design">
-                <h3>📢 Promotional Poster</h3>
-                <p>Professional promotional poster created for digital marketing and visual communication.</p>
-                <a href="design%204.png" target="_blank" class="project-btn">View Project →</a>
-            </div>
-
-            <div class="project-card">
-                <img src="design%205.png" alt="Creative Poster Design">
-                <h3>✨ Creative Poster</h3>
-                <p>Creative graphic design project focused on typography, composition and visual appeal.</p>
-                <a href="design%205.png" target="_blank" class="project-btn">View Project →</a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact">
-        <p class="small-text">CONTACT ME</p>
-        <h2>Let's Work Together</h2>
-        <p class="contact-description">Have a project in mind? I would love to hear about it. Feel free to contact me for UI/UX and Graphic Design projects.</p>
-        <div class="contact-container">
-            <a href="mailto:jameelhussain5577@gmail.com" class="contact-card">
-                <div class="contact-icon">✉</div>
-                <div><h3>Email</h3><p>jameelhussain5577@gmail.com</p></div>
-            </a>
-            <a href="https://wa.me/923161974052" target="_blank" class="contact-card">
-                <div class="contact-icon">☏</div>
-                <div><h3>WhatsApp</h3><p>0316 1974052</p></div>
-            </a>
-            <a href="mailto:jameelhussain5566@gmail.com" class="contact-card">
-                <div class="contact-icon">✉</div>
-                <div><h3>Alternate Email</h3><p>jameelhussain5566@gmail.com</p></div>
-            </a>
-            <a href="https://www.linkedin.com/in/jameel-hussain-a39ab3434/" target="_blank" class="contact-card">
-                <div class="contact-icon">in</div>
-                <div><h3>LinkedIn</h3><p>Connect with me</p></div>
-            </a>
-        </div>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-    <footer>
-        <p>© 2026 Jameel Hussain. All Rights Reserved.</p>
-        <p>UI/UX Designer • Graphic Designer</p>
-    </footer>
-
+ all.forEach(p=>{
+   html+=`<div class="post">
+     <img src="${p.image}">
+     <div class="post-body">
+       <div class="meta">${p.date||''}</div>
+       <h3>${p.title}</h3>
+       <p>${p.desc||''}</p>
+       ${p.linkedin?`<a class="btn btn-li" href="${p.linkedin}" target="_blank">LinkedIn pe dekho</a>`:''}
+       <a class="btn btn-wa" href="https://wa.me/?text=${encodeURIComponent(p.title+' - '+ (p.linkedin||''))}" target="_blank">Share</a>
+     </div>
+   </div>`;
+ });
+ document.getElementById('list').innerHTML=html;
+}
+load();
+</script>
 </body>
 </html>
