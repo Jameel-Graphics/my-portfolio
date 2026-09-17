@@ -1,39 +1,66 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin - Jameel</title>
-<style>body{background:#061E1E;color:#fff;font-family:sans-serif;display:grid;place-items:center;min-height:100vh;padding:20px}.box{background:#102F2F;border:1px solid rgba(255,255,255,.1);padding:28px;border-radius:18px;width:100%;max-width:420px} input,textarea{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0A2F2F;color:#fff} button{width:100%;padding:12px;margin-top:14px;background:#FF6B1A;color:#fff;border:0;border-radius:10px;font-weight:800;cursor:pointer} #main{display:none} #lock{text-align:center}</style>
-</head><body>
-<div class="box" id="lock">
-<h2>🔒 Admin Login</h2>
-<p style="opacity:.5;font-size:12px;margin-top:6px">Only Jameel</p>
-<input type="password" id="pass" placeholder="Password">
-<button onclick="check()">Unlock</button>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin PRO - Jameel</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#050505;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{width:100%;max-width:480px;background:#111;border-radius:24px;padding:36px;border:1px solid #1a1a1a}
+h2{font-family:'Syne',sans-serif;font-size:28px}h2 span{color:#ff4d00}
+p{color:#666;font-size:13px;margin:8px 0 22px}
+label{font-size:11px;color:#888;letter-spacing:1px;margin-top:18px;display:block}
+input,select{width:100%;padding:14px;margin-top:6px;background:#1a1a1a;border:1px solid #262626;border-radius:12px;color:#fff;outline:none}
+input:focus,select:focus{border-color:#ff4d00}
+.btn{width:100%;padding:15px;background:#ff4d00;border:none;border-radius:100px;color:#000;font-weight:800;font-size:14px;margin-top:24px;cursor:pointer;letter-spacing:1px}
+.preview{width:100%;height:200px;background:#1a1a1a;border-radius:14px;margin-top:14px;overflow:hidden;display:none;border:1px solid #262626}
+.preview img{width:100%;height:100%;object-fit:cover}
+.success{background:#00c85315;border:1px solid #00c853;color:#00e676;padding:16px;border-radius:14px;margin-top:20px;display:none;text-align:center;font-size:13px}
+</style>
+</head>
+<body>
+<div class="card" id="loginCard">
+<div style="text-align:center">
+<h2>Admin <span>Login</span></h2>
+<p>Only for Jameel Hussain</p>
+<input type="password" id="pass" placeholder="Password: jameel123">
+<button class="btn" onclick="login()">LOGIN →</button>
+<p id="err" style="color:#ff4444;display:none;margin-top:12px;font-size:12px">Wrong password jani!</p>
 </div>
-<div class="box" id="main">
-<h2>Add Post</h2>
-<input id="title" placeholder="Title">
-<textarea id="desc" placeholder="Description"></textarea>
-<input type="file" id="img" accept="image/*">
-<input id="date" type="date">
-<button onclick="generate()">Generate Code</button>
-<textarea id="out" style="height:200px;display:none;margin-top:14px" readonly></textarea>
-<p id="hint" style="font-size:11px;opacity:.5;margin-top:10px;display:none">Copy karke posts.json me paste karo</p>
+</div>
+<div class="card" id="adminCard" style="display:none">
+<h2>Add <span>Project</span> 🚀</h2>
+<p>Live to your PRO website</p>
+<label>PROJECT TITLE *</label>
+<input id="title" placeholder="Ex: Spicy Ramen Poster">
+<label>CATEGORY</label>
+<select id="category"><option>Food Poster</option><option>Pizza Poster</option><option>Food Menu</option><option>Logo Design</option><option>Branding</option><option>Social Media</option></select>
+<label>IMAGE URL *</label>
+<input id="image_url" placeholder="design 1.png or https link" oninput="show(this.value)">
+<div class="preview" id="box"><img id="img"></div>
+<label>PROJECT LINK (Optional)</label>
+<input id="link" placeholder="https://behance.net/...">
+<button class="btn" id="btn" onclick="pub()">PUBLISH TO WEBSITE 🚀</button>
+<div class="success" id="suc">✅ Done jani! Live on website!<br><br><a href="index.html" target="_blank" style="color:#00e676">View Portfolio →</a></div>
 </div>
 <script>
-function check(){
- if(pass.value==='jameel123'){
-  lock.style.display='none'; main.style.display='block';
- }else{alert('Wrong Password!')}
-}
-function generate(){
- let t=title.value; let d=desc.value; let dt=date.value||new Date().toISOString().split('T')[0];
- let file=img.files[0]; if(!t||!file){alert('Missing');return}
- let r=new FileReader();
- r.onload=e=>{
-  out.style.display='block'; hint.style.display='block';
-  out.value=`{\n "title": "${t}",\n "desc": "${d}",\n "image": "${e.target.result}",\n "date": "${dt}"\n},`;
- };
- r.readAsDataURL(file);
+const url='https://bfkpuxsppgdsvbuwknog.supabase.co'
+const key='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJma3B1eHNwcGdkc3ZidXdrbm9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA4MTQ0MzUsImV4cCI6MjA3NjM5MDQzNX0.TI6RTlh56UHW-j5WGMuALvJe7P86SqW3VXMFkhBc4Uc'
+const sup=supabase.createClient(url,key)
+function login(){let p=document.getElementById('pass').value;if(p==='jameel123'){loginCard.style.display='none';adminCard.style.display='block'}else{err.style.display='block'}}
+function show(v){if(!v)return;box.style.display='block';img.src=v}
+async function pub(){
+ let b=document.getElementById('btn'),t=title.value,c=category.value,i=image_url.value,l=link.value
+ if(!t||!i)return alert('Title + Image required!')
+ b.innerText='Publishing...';b.disabled=true
+ let {error}=await sup.from('portfolio_projects').insert([{title:t,category:c,image_url:i,project_link:l}])
+ if(error){alert(error.message);b.innerText='PUBLISH';b.disabled=false;return}
+ suc.style.display='block';title.value='';image_url.value='';link.value='';box.style.display='none'
+ b.innerText='PUBLISH TO WEBSITE 🚀';b.disabled=false
+ setTimeout(()=>suc.style.display='none',4000)
 }
 </script>
-</body></html>
+</body>
+</html>
