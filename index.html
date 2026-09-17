@@ -15,7 +15,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6
 .logo-mark{width:44px;height:44px;background:#ff4d00;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:20px;font-family:'Syne';box-shadow:0 0 20px #ff4d0050}
 .logo-text{letter-spacing:6px;font-size:11px;color:#ff4d00;opacity:0.8}
 .nav-links{display:flex;gap:36px;align-items:center}
-.nav-links a{color:#999;text-decoration:none;font-size:13px;letter-spacing:1px;transition:0.3s}
+.nav-links a{color:#999;text-decoration:none;font-size:13px;letter-spacing:1px}
 .nav-links a.active,.nav-links a:hover{color:#fff}
 .btn-orange{background:#ff4d00;color:#000;padding:12px 28px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:1px}
 .hero{display:grid;grid-template-columns:1.2fr 0.8fr;padding:70px 6% 50px;gap:40px;align-items:center}
@@ -27,8 +27,10 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6
 .stats{display:flex;gap:40px;margin-top:40px;border-top:1px solid #1a1a1a;padding-top:24px}
 .stat b{font-size:28px;display:block;font-family:'Syne'} 
 .stat span{font-size:11px;color:#666;letter-spacing:1px}
-.hero-card{background:#111;border-radius:24px;padding:0;display:flex;align-items:center;justify-content:center;min-height:520px;border:1px solid #1a1a1a;position:relative;overflow:hidden;box-shadow:0 0 40px #ff4d0015}
-.avatar{width:100%;height:100%;border-radius:24px;background:#111;border:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+/* ELEGANT CIRCLE STYLE */
+.hero-card{background:transparent;border:none;display:flex;align-items:center;justify-content:center;min-height:520px;position:relative}
+.hero-card::before{content:'';position:absolute;width:380px;height:380px;background:radial-gradient(circle,#ff4d0018,transparent 70%);border-radius:50%;z-index:0}
+.avatar{width:340px;height:340px;border-radius:50%;background:#111;border:3px solid #ff4d00;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;z-index:1;box-shadow:0 0 0 12px #ff4d0010, 0 0 80px #ff4d0030, 0 20px 60px #000}
 .avatar img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .works{padding:40px 6% 80px;border-top:1px solid #111}
 .works-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;flex-wrap:wrap;gap:10px}
@@ -41,7 +43,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6
 .project img{width:100%;height:280px;object-fit:cover;border-radius:14px;background:#1a1a1a}
 .project h3{margin:18px 0 6px;font-size:16px;letter-spacing:1px}
 .project p{color:#ff4d00;font-size:11px;letter-spacing:1px}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.nav-links{display:none}.hero-card{min-height:400px}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.nav-links{display:none}.avatar{width:280px;height:280px}.hero-card::before{width:320px;height:320px}}
 </style>
 </head>
 <body>
@@ -68,12 +70,12 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:24px 6
 </div>
 </div>
 <div class="hero-card">
-<div class="avatar"><img src="jameel hussain.png" onerror="this.src='https://i.ibb.co/3Wq3J6P/profile.jpg'" alt="Jameel"></div>
+<div class="avatar"><img src="jameel hussain.png" alt="Jameel"></div>
 </div>
 </div>
 <div class="works" id="works">
 <div class="works-head"><h2>SELECTED WORKS</h2><small>FOOD POSTERS — BRANDING & PRINT DESIGN</small></div>
-<div class="grid" id="list"><p style="color:#444">Loading pro projects from Supabase...</p></div>
+<div class="grid" id="list"><p style="color:#444">Loading pro projects...</p></div>
 </div>
 <script>
 const supabaseUrl='https://bfkpuxsppgdsvbuwknog.supabase.co'
@@ -83,7 +85,7 @@ async function load(){
  let {data}=await client.from('portfolio_projects').select('*').order('created_at',{ascending:false})
  let el=document.getElementById('list')
  if(!data||data.length==0){el.innerHTML='<p style="color:#666;padding:40px;text-align:center;grid-column:1/-1">No projects yet.<br>Add from <a href=admin.html style=color:#ff4d00>admin.html</a></p>';return}
- el.innerHTML=data.map(p=>`<div class="project"><img src="${p.image_url}" loading="lazy"><h3>${p.title.toUpperCase()}</h3><p>#${(p.category||'DESIGN').toUpperCase()} ${p.project_link?`• <a href=${p.project_link} target=_blank style=color:#ff4d00>VIEW</a>`:''}</p></div>`).join('')
+ el.innerHTML=data.map(p=>`<div class="project"><img src="${p.image_url}" loading="lazy"><h3>${p.title.toUpperCase()}</h3><p>#${(p.category||'DESIGN').toUpperCase()}</p></div>`).join('')
 }
 load()
 </script>
